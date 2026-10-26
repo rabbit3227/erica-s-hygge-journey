@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>艾慢活｜慢生活的文字與手作</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600&family=Noto+Sans+TC:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#fff6d6; --card:#fffdf3; --ink:#4a3512; --muted:#86683a;
+  --tea:#f6bb2e; --tea-deep:#b36a00; --line:#f3e0a6; --on-tea:#4a3512;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#241d12; --card:#2f2616; --ink:#fbefcf; --muted:#c9b283;
+    --tea:#f6bb2e; --tea-deep:#f7c85a; --line:#4a3b1f; --on-tea:#2a1f0c;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#241d12; --card:#2f2616; --ink:#fbefcf; --muted:#c9b283;
+  --tea:#f6bb2e; --tea-deep:#f7c85a; --line:#4a3b1f; --on-tea:#2a1f0c;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);line-height:1.95;font-weight:300;
+  font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;-webkit-font-smoothing:antialiased}
+.wrap{max-width:900px;margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:"Noto Serif TC","Songti TC",serif;font-weight:600;margin:0;letter-spacing:.05em}
+section{padding:88px 0}
+
+.hero{min-height:94vh;display:flex;align-items:center;text-align:center;position:relative;overflow:hidden}
+.hero::before,.hero::after{content:"";position:absolute;border-radius:50%;filter:blur(64px);opacity:.4;animation:float 15s ease-in-out infinite}
+.hero::before{width:340px;height:340px;background:var(--tea);top:-100px;right:-90px}
+.hero::after{width:260px;height:260px;background:#ffd966;bottom:-70px;left:-70px;animation-delay:-7s}
+.hero .wrap{position:relative;z-index:1}
+.sun{width:76px;height:76px;display:block;margin:0 auto 18px;animation:spin 48s linear infinite}
+.sun ellipse{fill:var(--tea)}.sun circle{fill:#6b4423}
+@keyframes spin{to{transform:rotate(360deg)}}
+.eyebrow{display:block;font-size:.85rem;letter-spacing:.4em;color:var(--tea-deep);margin-bottom:28px}
+.hero h1{font-size:clamp(1.55rem,5.6vw,2.7rem);line-height:1.75;max-width:17em;margin:0 auto}
+.hero h1 span{display:block}
+.hero p.sub{max-width:30em;margin:24px auto 0;color:var(--muted);font-size:1.05rem}
+.btn{display:inline-block;margin-top:40px;background:var(--tea);color:var(--on-tea);text-decoration:none;
+  padding:15px 42px;border-radius:999px;font-weight:500;letter-spacing:.2em;
+  box-shadow:0 8px 24px rgba(246,187,46,.45);transition:transform .35s ease,box-shadow .35s ease}
+.btn:hover{transform:translateY(-3px);box-shadow:0 14px 32px rgba(246,187,46,.6)}
+@keyframes float{50%{transform:translate(-26px,28px)}}
+
+.about{background:var(--card);border-block:1px solid var(--line)}
+.about .wrap{max-width:660px;text-align:center}
+h2.t{font-size:clamp(1.5rem,4.5vw,2rem);margin-bottom:30px;text-align:center}
+h2.t::after{content:"";display:block;width:36px;height:2px;background:var(--tea);margin:18px auto 0}
+.about p{margin:0;font-size:1.05rem}
+
+.grid{display:grid;gap:20px;grid-template-columns:repeat(3,1fr);margin-top:48px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:34px 28px;
+  transition:transform .4s ease,box-shadow .4s ease}
+.card:hover{transform:translateY(-6px);box-shadow:0 16px 36px rgba(150,100,0,.14)}
+.card .no{font-family:"Noto Serif TC",serif;font-size:2rem;color:var(--tea-deep);}
+.card h3{font-size:1.2rem;margin:8px 0 10px}
+.card p{margin:0;color:var(--muted);font-size:.97rem}
+
+.cta{text-align:center;padding-top:16px}
+.cta p{margin:0;color:var(--muted)}
+.cta .btn{margin-top:28px}
+footer{text-align:center;padding:36px 24px 48px;font-size:.85rem;color:var(--muted)}
+
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+.d1{transition-delay:.12s}.d2{transition-delay:.24s}
+
+@media (max-width:760px){
+  section{padding:68px 0}
+  .grid{grid-template-columns:1fr;margin-top:36px}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <svg class="sun reveal" viewBox="0 0 120 120" aria-hidden="true"><g><ellipse cx="60" cy="24" rx="9" ry="20"/><ellipse cx="60" cy="24" rx="9" ry="20" transform="rotate(30 60 60)"/><ellipse cx="60" cy="24" rx="9" ry="20" transform="rotate(60 60 60)"/><ellipse cx="60" cy="24" rx="9" ry="20" transform="rotate(90 60 60)"/><ellipse cx="60" cy="24" rx="9" ry="20" transform="rotate(120 60 60)"/><ellipse cx="60" cy="24" rx="9" ry="20" transform="rotate(150 60 60)"/><ellipse cx="60" cy="24" rx="9" ry="20" transform="rotate(180 60 60)"/><ellipse cx="60" cy="24" rx="9" ry="20" transform="rotate(210 60 60)"/><ellipse cx="60" cy="24" rx="9" ry="20" transform="rotate(240 60 60)"/><ellipse cx="60" cy="24" rx="9" ry="20" transform="rotate(270 60 60)"/><ellipse cx="60" cy="24" rx="9" ry="20" transform="rotate(300 60 60)"/><ellipse cx="60" cy="24" rx="9" ry="20" transform="rotate(330 60 60)"/></g><circle cx="60" cy="60" r="19"/></svg>
+    <span class="eyebrow reveal">艾慢活 · AI SLOW LIFE</span>
+    <h1 class="reveal d1">
+      <span>慢一點，把日子過成</span>
+      <span>自己喜歡的樣子</span>
+    </h1>
+    <p class="sub reveal d2">用文字與手作，記錄生活裡微小而溫暖的瞬間。</p>
+    <a class="btn reveal d2" href="#portfolio">查看作品</a>
+  </div>
+</header>
+
+<section class="about">
+  <div class="wrap reveal">
+    <h2 class="t">關於我</h2>
+    <p>我是艾瑞卡，住在台灣，每天清晨在早餐店迎接新的一天。下班後，我回到桌前寫字、做手作，把日常的片段釀成溫暖的故事。「艾慢活」是我為自己留的一個角落，這裡的一切都不趕時間。我相信慢下來，才看得見生活真正的味道。</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2 class="t reveal">我在做的事</h2>
+    <div class="grid">
+      <article class="card reveal">
+        <div class="no">01</div>
+        <h3>生活散文</h3>
+        <p>以真誠的筆調書寫日常與心情，讓讀者在文字裡找到共鳴。</p>
+      </article>
+      <article class="card reveal d1">
+        <div class="no">02</div>
+        <h3>手作禮物</h3>
+        <p>一件一件用心完成，把祝福與心意藏進每個細節裡。</p>
+      </article>
+      <article class="card reveal d2">
+        <div class="no">03</div>
+        <h3>溫暖文案</h3>
+        <p>用有溫度的說故事方式，替品牌與內容寫出貼近人心的文字。</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="portfolio">
+  <div class="wrap reveal">
+    <p>想看看我的文字與作品嗎？</p>
+    <a class="btn" id="cta-main" href="#">查看作品</a>
+  </div>
+</section>
+
+<footer>© 艾慢活 Ai Slow Life</footer>
+
+<script>
+// 把作品集連結換成你自己的網址
+var PORTFOLIO_URL = "#";
+document.getElementById("cta-main").setAttribute("href", PORTFOLIO_URL);
+
+var els = document.querySelectorAll(".reveal");
+if ("IntersectionObserver" in window) {
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.15, rootMargin: "0px 0px -40px 0px" });
+  els.forEach(function (el) { io.observe(el); });
+} else {
+  els.forEach(function (el) { el.classList.add("in"); });
+}
+</script>
+</body>
+</html>
